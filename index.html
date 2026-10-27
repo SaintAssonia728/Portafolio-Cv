@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Gómez - Portafolio</title>
+    <script src="https://tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 sticky top-0 z-50 border-b border-gray-700 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="text-xl font-bold text-blue-400">Mauricio Gómez</span>
+            <div class="space-x-4">
+                <a href="#perfil" class="hover:text-blue-400 transition">Perfil</a>
+                <a href="#estudios" class="hover:text-blue-400 transition">Educación</a>
+                <a href="#habilidades" class="hover:text-blue-400 transition">Habilidades</a>
+                <a href="#experiencia" class="hover:text-blue-400 transition">Experiencia</a>
+                <a href="#proyectos" class="hover:text-blue-400 transition text-green-400 font-semibold">Proyectos IA</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Perfil -->
+    <header id="perfil" class="container mx-auto max-w-4xl py-16 px-4 text-center">
+        <h1 class="text-4xl font-extrabold mb-2 text-white">Mauricio Ignacio Gómez González</h1>
+        <p class="text-xl text-blue-400 mb-6 font-medium">Estudiante de Ingeniería en Informática & Técnico en Telecomunicaciones</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto text-left bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
+            <p><span class="text-gray-400 font-semibold">📍 Ubicación:</span> Renca, Santiago, Chile</p>
+            <p><span class="text-gray-400 font-semibold">📧 Correo:</span> gomezmauricioignacio@gmail.com</p>
+            <p><span class="text-gray-400 font-semibold">📱 Teléfono:</span> +56 9 2046 9024</p>
+            <p><span class="text-gray-400 font-semibold">🎂 Edad:</span> 22 Años</p>
+        </div>
+    </header>
+
+    <!-- Sección de Proyectos IA -->
+    <section id="proyectos" class="bg-gray-800 py-12 border-t border-b border-gray-700">
+        <div class="container mx-auto max-w-4xl px-4">
+            <h2 class="text-2xl font-bold text-green-400 mb-6 flex items-center">🤖 Mis Proyectos de Automatización con IA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Proyecto 1 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-md">
+                    <h3 class="text-xl font-bold text-white mb-2">AI Email Classifier (Python + OpenAI)</h3>
+                    <p class="text-gray-400 text-sm mb-4">Script en Python que lee bandejas de entrada mediante IMAP, procesa los correos usando la API de GPT para clasificarlos de forma automatizada por urgencia y extrae los datos clave en formato JSON.</p>
+                    <span class="inline-block bg-blue-900/50 text-blue-300 text-xs px-2.5 py-1 rounded font-medium mr-2">Python</span>
+                    <span class="inline-block bg-green-900/50 text-green-300 text-xs px-2.5 py-1 rounded font-medium">OpenAI API</span>
+                </div>
+                <!-- Proyecto 2 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-md">
+                    <h3 class="text-xl font-bold text-white mb-2">RAG Document Assistant</h3>
+                    <p class="text-gray-400 text-sm mb-4">Sistema básico de Recuperación Aumentada por Generación (RAG) estructurado con LangChain. Permite cargar manuales técnicos en PDF en una base de datos vectorial para responder consultas de soporte de manera exacta.</p>
+                    <span class="inline-block bg-blue-900/50 text-blue-300 text-xs px-2.5 py-1 rounded font-medium mr-2">LangChain</span>
+                    <span class="inline-block bg-purple-900/50 text-purple-300 text-xs px-2.5 py-1 rounded font-medium">ChromaDB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educación -->
+    <section id="estudios" class="container mx-auto max-w-4xl py-12 px-4">
+        <h2 class="text-2xl font-bold text-blue-400 mb-6">🎓 Antecedentes Educacionales</h2>
+        <div class="space-y-6">
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                <span class="text-xs font-semibold bg-blue-900 text-blue-300 px-2 py-1 rounded float-right">En Curso</span>
+                <h3 class="text-xl font-bold text-white">Ingeniería en Informática</h3>
+                <p class="text-gray-400">INACAP, Sede Renca — 5° Semestre (3er Año)</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                <span class="text-xs font-semibold bg-gray-700 text-gray-300 px-2 py-1 rounded float-right">Titulado</span>
+                <h3 class="text-xl font-bold text-white">Técnico de Nivel Medio en Telecomunicaciones</h3>
+                <p class="text-gray-400">Instituto Cumbres de Cóndores Oriente</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="bg-gray-800 py-12 border-t border-gray-700">
+        <div class="container mx-auto max-w-4xl px-4">
+            <h2 class="text-2xl font-bold text-blue-400 mb-6">🛠️ Conocimientos Técnicos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-white font-bold mb-2 border-b border-gray-700 pb-1 text-md">Soporte e Infraestructura</h3>
+                    <ul class="text-gray-400 text-sm space-y-1 list-disc pl-4">
+                        <li>Diagnóstico y armado de PC</li>
+                        <li>Gestión de tickets y Mesa de ayuda</li>
+                        <li>Sistemas Operativos Windows Avanzado</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-2 border-b border-gray-700 pb-1 text-md">Redes y Conectividad</h3>
+                    <ul class="text-gray-400 text-sm space-y-1 list-disc pl-4">
+                        <li>Implementación de redes</li>
+                        <li>Cableado estructurado</li>
+                        <li>Soporte de conectividad técnica</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-2 border-b border-gray-700 pb-1 text-md">Desarrollo & Ofimática</h3>
+                    <ul class="text-gray-400 text-sm space-y-1 list-disc pl-4">
+                        <li>Lógica de programación (Python/SQL)</li>
+                        <li>Microsoft Office (Excel/Word)</li>
+                        <li>Control de versiones Git & GitHub</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia" class="container mx-auto max-w-4xl py-12 px-4">
+        <h2 class="text-2xl font-bold text-blue-400 mb-6">💼 Experiencia Laboral</h2>
+        <div class="space-y-6">
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                <span class="text-sm text-gray-400 float-right">Feb 2023 – May 2023</span>
+                <h3 class="text-xl font-bold text-white">Práctica Profesional - Técnico en Telecomunicaciones</h3>
+                <p class="text-blue-400 font-medium mb-2">Soprole S.A. (4 meses)</p>
+                <p class="text-gray-400 text-sm">Soporte técnico remoto y presencial a usuarios en dependencias de la empresa. Atención e incidencias tecnológicas mediante gestión de tickets en mesa de ayuda.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                <span class="text-sm text-gray-400 float-right">2023 (6 meses)</span>
+                <h3 class="text-xl font-bold text-white">Operario de Bodega / Logística</h3>
+                <p class="text-blue-400 font-medium mb-2">Activos Chile (Paris)</p>
+                <p class="text-gray-400 text-sm">Operación en línea de sorter, clasificación, paletizado y picking manual según requerimientos operativos de despacho seguro.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-center py-6 text-gray-500 text-sm">
+        <p>Disponibilidad Inmediata • Mauricio Gómez González</p>
+    </footer>
+
+</body>
+</html>
