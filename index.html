@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#121b25">
   <meta name="description" content="Portafolio y currículum de Mauricio Ignacio Gómez González, estudiante de Ingeniería en Informática y técnico en Telecomunicaciones.">
-  <title>Mauricio Gómez | Portafolio</title>
+  <title>Mauricio Gómez | Portafolio y CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -76,6 +76,49 @@
     .desktop-links a { transition: color .2s; }
     .desktop-links a:hover { color: var(--amarillo); }
     .pill-online { height: 8px; width: 8px; background: #92d1a1; border-radius: 50%; box-shadow: 0 0 0 4px rgba(146,209,161,.14); }
+
+    /* NUEVAS SECCIONES: tecnologías, habilidades personales y redes */
+    .tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .75rem; }
+    @media (min-width: 640px) { .tool-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    @media (min-width: 1024px) { .tool-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+    @media (min-width: 1280px) { .tool-grid { grid-template-columns: repeat(8, minmax(0,1fr)); } }
+    .tech-tile {
+      min-height: 147px;
+      border: 1px solid var(--borde);
+      background: #17252f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 20px 10px;
+      text-align: center;
+      position: relative;
+      transition: transform .22s, border-color .22s, background-color .22s;
+    }
+    .tech-tile::before { content: ''; position: absolute; top: 0; left: 0; width: 34px; height: 4px; background: var(--tile-accent, var(--celeste)); }
+    .tech-tile:hover { transform: translateY(-4px); border-color: var(--tile-accent, var(--celeste)); background: #233541; }
+    .tech-icon { height: 51px; min-width: 54px; display: flex; align-items: center; justify-content: center; }
+    .tech-icon img { width: 49px; max-height: 49px; object-fit: contain; }
+    .tech-icon img.wide { width: 82px; max-width: 82px; }
+    .tech-icon .fallback[hidden] { display: none !important; }
+    .tech-icon .fallback { display: flex; align-items: center; justify-content: center; min-width: 49px; height: 49px; padding: 0 5px; font: 900 1.45rem 'Barlow Condensed',sans-serif; letter-spacing: .01em; color: var(--tile-accent, var(--amarillo)); border: 2px solid currentColor; }
+    .tech-tile .tech-name { color: var(--crema); font-size: .84rem; font-weight: 800; line-height: 1.3; }
+    .soft-pill { border: 1px solid #607585; background: #15222d; padding: .67rem 1.1rem; font-size: .86rem; font-weight: 700; color: #d6e0e5; transition: background .2s, border-color .2s; }
+    .soft-pill::before { content: '✦'; color: var(--amarillo); margin-right: 8px; font-size: .7rem; }
+    .soft-pill:hover { border-color: var(--amarillo); background: #253644; }
+    .social-card { display: flex; align-items: center; gap: 17px; min-width: 0; border: 1px solid var(--borde); background: #22323f; padding: 21px; transition: transform .2s, border-color .2s, background-color .2s; }
+    .social-card:hover { transform: translateY(-3px); border-color: var(--amarillo); background: #2b4050; }
+    .social-mark { display: flex; flex: 0 0 54px; height: 54px; align-items: center; justify-content: center; color: #121b25; background: var(--card-accent, var(--amarillo)); }
+    .social-mark svg { width: 27px; height: 27px; }
+    .social-card .social-label { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: #aec1cc; }
+    .social-card .social-user { display: block; margin-top: 3px; font-size: .99rem; font-weight: 800; overflow-wrap: anywhere; }
+    .social-card .social-arrow { margin-left: auto; color: var(--amarillo); font-size: 1.2rem; }
+    @media (max-width: 460px) {
+      .tech-tile { min-height: 128px; padding: 15px 6px; gap: 12px; }
+      .tech-tile .tech-name { font-size: .75rem; }
+      .social-mark { flex-basis: 47px; height: 47px; }
+    }
     ::selection { background: var(--amarillo); color: #121b25; }
     @media (max-width: 767px) {
       .hero-title { font-size: clamp(3.1rem, 13.5vw, 5.8rem); }
@@ -91,6 +134,17 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
+
+    /* Cursor de Mecha Man (ilustración propia, estilo Dispatch).
+       Se aplica solo con mouse/trackpad y no afecta pantallas táctiles. */
+    @media (pointer: fine) {
+      html, body, main, section, header, nav, footer {
+        cursor: url("data:image/png;base64,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") 2 2, auto;
+      }
+      a, button, a *, button * {
+        cursor: url("data:image/png;base64,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") 2 2, pointer !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -104,21 +158,25 @@
           <small class="block text-[9px] font-bold uppercase tracking-[.21em] text-[#a9b7c1]">Portafolio // Informática</small>
         </span>
       </a>
-      <div class="desktop-links hidden items-center gap-7 text-xs font-extrabold uppercase tracking-widest md:flex">
+      <div class="desktop-links hidden items-center gap-5 text-[11px] font-extrabold uppercase tracking-widest xl:flex">
         <a href="#perfil">Perfil</a>
         <a href="#estudios">Educación</a>
         <a href="#habilidades">Habilidades</a>
         <a href="#experiencia">Experiencia</a>
+        <a href="#redes">Redes</a>
+        <a href="CV_Mauricio_Gomez.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver mi CV real en PDF" class="border border-[#f4c84d] px-3 py-2 text-[#f4c84d] hover:bg-[#f4c84d]/10">CV real ↗</a>
         <a href="https://wa.me/56920469024?text=Hola%20Mauricio%2C%20vi%20tu%20CV%20y%20tu%20portafolio%20web.%20Me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%20%C2%A1Saludos%21" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp con un mensaje preparado para Mauricio" class="border-2 border-[#10161e] bg-[#ed654f] px-4 py-2 text-[#10161e] hover:!text-[#10161e]">WhatsApp ↗</a>
       </div>
-      <button id="menu-toggle" class="flex h-11 w-11 items-center justify-center border border-[#60717e] text-2xl md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
+      <button id="menu-toggle" class="flex h-11 w-11 items-center justify-center border border-[#60717e] text-2xl xl:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
     </div>
-    <div id="mobile-menu" class="border-t border-[#405360] bg-[#1a2732] px-5 py-3 md:hidden" hidden>
+    <div id="mobile-menu" class="border-t border-[#405360] bg-[#1a2732] px-5 py-3 xl:hidden" hidden>
       <div class="flex flex-col gap-1 text-sm font-bold uppercase tracking-widest">
         <a class="px-3 py-3 hover:bg-[#283845]" href="#perfil">Perfil</a>
         <a class="px-3 py-3 hover:bg-[#283845]" href="#estudios">Educación</a>
         <a class="px-3 py-3 hover:bg-[#283845]" href="#habilidades">Habilidades</a>
         <a class="px-3 py-3 hover:bg-[#283845]" href="#experiencia">Experiencia</a>
+        <a class="px-3 py-3 hover:bg-[#283845]" href="#redes">Redes</a>
+        <a class="px-3 py-3 text-[#f4c84d] hover:bg-[#283845]" href="CV_Mauricio_Gomez.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver mi CV real en PDF">CV real (PDF) ↗</a>
         <a class="px-3 py-3 text-[#f4c84d] hover:bg-[#283845]" href="https://wa.me/56920469024?text=Hola%20Mauricio%2C%20vi%20tu%20CV%20y%20tu%20portafolio%20web.%20Me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%20%C2%A1Saludos%21" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp con un mensaje preparado para Mauricio">WhatsApp ↗</a>
       </div>
     </div>
@@ -149,6 +207,7 @@
           </div>
           <div class="mt-9 flex flex-wrap gap-4">
             <a class="ui-button hard-shadow-small outline-dark bg-[#f4c84d] text-[#121b25]" href="#experiencia">Ver experiencia <span aria-hidden="true">↘</span></a>
+            <a class="ui-button border-2 border-[#f4c84d] text-[#f4c84d] hover:bg-[#f4c84d]/10" href="CV_Mauricio_Gomez.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir mi currículum en PDF en una nueva pestaña">Ver CV real (PDF) <span aria-hidden="true">↗</span></a>
             <a class="ui-button border-2 border-[#6c7e89] text-[#f2ecdf] hover:bg-[#273946]" href="https://wa.me/56920469024?text=Hola%20Mauricio%2C%20vi%20tu%20CV%20y%20tu%20portafolio%20web.%20Me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%20%C2%A1Saludos%21" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp con un mensaje preparado para Mauricio">Escribirme por WhatsApp <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -182,7 +241,7 @@
       <!-- Datos de contacto -->
       <div class="mt-16 grid gap-3 border-t border-[#405360] pt-6 sm:grid-cols-2 lg:grid-cols-3">
         <div class="flex items-center gap-3"><span class="display text-3xl font-black text-[#f4c84d]">01</span><div><span class="detail-label">Base de operaciones</span><span class="text-sm font-semibold">Renca, Santiago, Chile</span></div></div>
-        <a class="flex min-w-0 items-center gap-3 hover:text-[#f4c84d]" href="https://mail.google.com/mail/?view=cm&fs=1&to=gomezmauricioignacio%40gmail.com&su=Contacto%20por%20tu%20CV%20y%20portafolio&body=Hola%20Mauricio%3A%0A%0AVi%20tu%20CV%20y%20tu%20portafolio%20web%20y%20me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%0A%0AQuedo%20atento%2Fa%20a%20tu%20respuesta.%0A%0ASaludos." target="_blank" rel="noopener noreferrer" aria-label="Redactar un correo a Mauricio en Gmail"><span class="display text-3xl font-black text-[#f4c84d]">02</span><div class="min-w-0"><span class="detail-label">Correo electrónico</span><span class="block break-all text-sm font-semibold">gomezmauricioignacio@gmail.com</span></div></a>
+        <a class="flex min-w-0 items-center gap-3 hover:text-[#f4c84d]" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gomezmauricioignacio%40gmail.com&amp;su=Contacto%20por%20tu%20CV%20y%20portafolio&amp;body=Hola%20Mauricio%3A%0A%0AVi%20tu%20CV%20y%20tu%20portafolio%20web%20y%20me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%0A%0AQuedo%20atento%2Fa%20a%20tu%20respuesta.%0A%0ASaludos." target="_blank" rel="noopener noreferrer" aria-label="Redactar un correo a Mauricio en Gmail"><span class="display text-3xl font-black text-[#f4c84d]">02</span><div class="min-w-0"><span class="detail-label">Correo electrónico</span><span class="block break-all text-sm font-semibold">gomezmauricioignacio@gmail.com</span></div></a>
         <a class="flex items-center gap-3 hover:text-[#f4c84d]" href="tel:+56920469024"><span class="display text-3xl font-black text-[#f4c84d]">03</span><div><span class="detail-label">Teléfono</span><span class="text-sm font-semibold">+56 9 2046 9024</span></div></a>
       </div>
     </header>
@@ -232,6 +291,49 @@
             <div class="p-6"><div class="mb-5 flex items-center justify-between"><span class="display text-5xl font-black text-[#80c5d1]">03</span><span class="eyebrow text-[#879aa6]">Módulo</span></div><h3 class="display mb-4 text-3xl font-black uppercase leading-none">Desarrollo y<br>Ofimática</h3><ul><li>Lógica de programación (Python / SQL)</li><li>Microsoft Office (Excel / Word)</li><li>Git y GitHub</li></ul></div>
           </article>
         </div>
+        <!-- Tecnologías destacadas de las referencias del CV -->
+        <div class="mt-16 border-t border-[#405360] pt-12">
+          <div class="mb-7 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
+            <div><span class="eyebrow text-[#80c5d1]">02-A / Caja de herramientas</span><h3 class="display mt-2 text-4xl font-black uppercase sm:text-5xl">Tecnologías <span class="text-[#f4c84d]">y herramientas</span></h3></div>
+            <p class="max-w-xs text-sm leading-6 muted">Tecnologías que he conocido, utilizado o que sigo aprendiendo durante mi formación.</p>
+          </div>
+          <ul class="tool-grid" aria-label="Tecnologías y herramientas">
+            <li class="tech-tile" style="--tile-accent:#80c5d1"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>Py</span></span><span class="tech-name">Python</span></li>
+            <li class="tech-tile" style="--tile-accent:#f4c84d"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>JS</span></span><span class="tech-name">JavaScript</span></li>
+            <li class="tech-tile" style="--tile-accent:#80c5d1"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>SQL</span></span><span class="tech-name">MySQL</span></li>
+            <li class="tech-tile" style="--tile-accent:#9edba1"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="" class="" style="filter: brightness(0) invert(1);" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>Dj</span></span><span class="tech-name">Django</span></li>
+            <li class="tech-tile" style="--tile-accent:#f2ecdf"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="" class="" style="filter: brightness(0) invert(1);" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>Fl</span></span><span class="tech-name">Flask</span></li>
+            <li class="tech-tile" style="--tile-accent:#86c98b"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>DB</span></span><span class="tech-name">MongoDB</span></li>
+            <li class="tech-tile" style="--tile-accent:#f2ecdf"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="" class="" style="filter: brightness(0) invert(1);" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>GH</span></span><span class="tech-name">GitHub</span></li>
+            <li class="tech-tile" style="--tile-accent:#ed654f"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>H5</span></span><span class="tech-name">HTML5</span></li>
+            <li class="tech-tile" style="--tile-accent:#80c5d1"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>C3</span></span><span class="tech-name">CSS3</span></li>
+            <li class="tech-tile" style="--tile-accent:#b095fa"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>Bs</span></span><span class="tech-name">Bootstrap</span></li>
+            <li class="tech-tile" style="--tile-accent:#80c5d1"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>Ar</span></span><span class="tech-name">Arduino</span></li>
+            <li class="tech-tile" style="--tile-accent:#f4c84d"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" class="wide" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>AWS</span></span><span class="tech-name">AWS</span></li>
+            <li class="tech-tile" style="--tile-accent:#9edba1"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>AS</span></span><span class="tech-name">Android Studio</span></li>
+            <li class="tech-tile" style="--tile-accent:#ed654f"><span class="tech-icon" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" alt="" class="" style="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="fallback" hidden>Ub</span></span><span class="tech-name">Ubuntu</span></li>
+            <li class="tech-tile" style="--tile-accent:#80c5d1"><span class="tech-icon" aria-hidden="true"><span class="fallback">KL</span></span><span class="tech-name">Kali Linux</span></li>
+            <li class="tech-tile" style="--tile-accent:#f4c84d"><span class="tech-icon" aria-hidden="true"><span class="fallback">PCE</span></span><span class="tech-name">Pentaho CE</span></li>
+          </ul>
+        </div>
+
+        <!-- Habilidades personales -->
+        <div class="mt-16 border-t border-[#405360] pt-12">
+          <span class="eyebrow text-[#80c5d1]">02-B / Forma de trabajar</span>
+          <h3 class="display mb-3 mt-2 text-4xl font-black uppercase sm:text-5xl">Habilidades <span class="text-[#ed654f]">personales</span></h3>
+          <p class="mb-7 max-w-2xl text-sm leading-6 muted">Además de lo técnico, me interesa aportar en el trabajo en equipo y seguir aprendiendo.</p>
+          <ul class="flex flex-wrap gap-3" aria-label="Habilidades personales">
+            <li class="soft-pill">Trabajo en equipo</li>
+            <li class="soft-pill">Responsabilidad</li>
+            <li class="soft-pill">Resiliencia</li>
+            <li class="soft-pill">Disciplina</li>
+            <li class="soft-pill">Organización</li>
+            <li class="soft-pill">Trato con personas</li>
+            <li class="soft-pill">Autodidacta</li>
+            <li class="soft-pill">Adaptabilidad</li>
+            <li class="soft-pill">Proactividad</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -250,12 +352,25 @@
       </div>
     </section>
 
+
+    <!-- REDES Y CONTACTO -->
+    <section id="redes" class="border-t border-[#405360] bg-[#15212b] py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="mb-9"><span class="eyebrow section-kicker">04 / Conexiones</span><h2 class="display section-title mt-3 font-black uppercase">Redes <span class="text-[#80c5d1]">y contacto</span></h2><p class="mt-4 max-w-xl text-sm leading-6 muted">Estos son mis perfiles y formas de contacto para conversar sobre oportunidades y temas de informática.</p></div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <a class="social-card" style="--card-accent:#f4c84d" href="https://github.com/SaintAssonia728" target="_blank" rel="noopener noreferrer" aria-label="Visitar GitHub de Mauricio, SaintAssonia728"><span class="social-mark"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.82c.56.11.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.59 1.21 3.23.93.1-.72.39-1.21.7-1.5-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.43-2.22 1.15-3-.11-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.14a10.67 10.67 0 0 1 5.6 0c2.14-1.44 3.08-1.14 3.08-1.14.61 1.54.22 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.24-5.1 5.52.4.35.75 1.03.75 2.08v3.08c0 .3.2.66.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg></span><span class="min-w-0"><span class="social-label">GitHub</span><strong class="social-user">@SaintAssonia728</strong></span><span class="social-arrow" aria-hidden="true">↗</span></a>
+          <a class="social-card" style="--card-accent:#ed654f" href="https://www.instagram.com/saint_assonia7/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de Mauricio, saint_assonia7"><span class="social-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/></svg></span><span class="min-w-0"><span class="social-label">Instagram</span><strong class="social-user">@saint_assonia7</strong></span><span class="social-arrow" aria-hidden="true">↗</span></a>
+          <a class="social-card md:col-span-2 lg:col-span-1" style="--card-accent:#80c5d1" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gomezmauricioignacio%40gmail.com&amp;su=Contacto%20por%20tu%20CV%20y%20portafolio&amp;body=Hola%20Mauricio%3A%0A%0AVi%20tu%20CV%20y%20tu%20portafolio%20web%20y%20me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%0A%0AQuedo%20atento%2Fa%20a%20tu%20respuesta.%0A%0ASaludos." target="_blank" rel="noopener noreferrer" aria-label="Abrir Gmail para escribir a Mauricio"><span class="social-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg></span><span class="min-w-0"><span class="social-label">Correo</span><strong class="social-user text-[.8rem]">gomezmauricioignacio@gmail.com</strong></span><span class="social-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACTO -->
     <section class="relative overflow-hidden border-t-2 border-[#0a1118] bg-[#e86650] py-16 text-[#111b25]">
       <div class="dot-bg absolute inset-0 opacity-20" aria-hidden="true"></div>
       <div class="relative mx-auto flex max-w-6xl flex-col items-start justify-between gap-7 px-5 md:flex-row md:items-center md:px-8">
-        <div><span class="eyebrow">04 / Próxima misión</span><h2 class="display mt-2 text-5xl font-black uppercase leading-[.86] sm:text-7xl">¿Hablamos?</h2><p class="mt-3 max-w-lg text-sm font-semibold">Disponible para oportunidades laborales y para seguir creciendo en el área TI.</p><p class="mt-2 text-xs font-semibold opacity-80">El mensaje se abrirá listo para revisar y enviar.</p></div>
-        <a class="ui-button hard-shadow-small outline-dark shrink-0 bg-[#f4c84d] text-[#121b25]" href="https://mail.google.com/mail/?view=cm&fs=1&to=gomezmauricioignacio%40gmail.com&su=Contacto%20por%20tu%20CV%20y%20portafolio&body=Hola%20Mauricio%3A%0A%0AVi%20tu%20CV%20y%20tu%20portafolio%20web%20y%20me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%0A%0AQuedo%20atento%2Fa%20a%20tu%20respuesta.%0A%0ASaludos." target="_blank" rel="noopener noreferrer" aria-label="Abrir Gmail con un correo preparado para Mauricio">Abrir Gmail ↗</a>
+        <div><span class="eyebrow">05 / Próxima misión</span><h2 class="display mt-2 text-5xl font-black uppercase leading-[.86] sm:text-7xl">¿Hablamos?</h2><p class="mt-3 max-w-lg text-sm font-semibold">Disponible para oportunidades laborales y para seguir creciendo en el área TI.</p><p class="mt-2 text-xs font-semibold opacity-80">El mensaje se abrirá listo para revisar y enviar.</p></div>
+        <a class="ui-button hard-shadow-small outline-dark shrink-0 bg-[#f4c84d] text-[#121b25]" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gomezmauricioignacio%40gmail.com&amp;su=Contacto%20por%20tu%20CV%20y%20portafolio&amp;body=Hola%20Mauricio%3A%0A%0AVi%20tu%20CV%20y%20tu%20portafolio%20web%20y%20me%20gustar%C3%ADa%20contactarte%20para%20conversar%20sobre%20una%20oportunidad%20laboral.%0A%0AQuedo%20atento%2Fa%20a%20tu%20respuesta.%0A%0ASaludos." target="_blank" rel="noopener noreferrer" aria-label="Abrir Gmail con un correo preparado para Mauricio">Abrir Gmail ↗</a>
       </div>
     </section>
   </main>
@@ -287,7 +402,7 @@
     });
     mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
     window.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
-    window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth >= 1280) closeMenu(); });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
