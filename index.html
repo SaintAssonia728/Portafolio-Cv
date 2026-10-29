@@ -1,135 +1,294 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mauricio Gómez - Portafolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121b25">
+  <meta name="description" content="Portafolio y currículum de Mauricio Ignacio Gómez González, estudiante de Ingeniería en Informática y técnico en Telecomunicaciones.">
+  <title>Mauricio Gómez | Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --fondo: #121b25;
+      --fondo-2: #1a2732;
+      --panel: #22323f;
+      --crema: #f2ecdf;
+      --muted: #a9b7c1;
+      --rojo: #ed654f;
+      --amarillo: #f4c84d;
+      --celeste: #80c5d1;
+      --borde: #405360;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--crema);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .18;
+      background-image: radial-gradient(#8398a7 0.8px, transparent 0.8px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(90deg, transparent 15%, #000 100%);
+    }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 4px; }
+    .display { font-family: 'Barlow Condensed', Impact, sans-serif; letter-spacing: .035em; overflow-wrap: anywhere; }
+    .grid > * { min-width: 0; }
+    .muted { color: var(--muted); }
+    .outline-dark { border: 2px solid #0a1118; }
+    .hard-shadow { box-shadow: 9px 9px 0 #0a1118; }
+    .hard-shadow-small { box-shadow: 5px 5px 0 #0a1118; }
+    .dot-bg { background-image: radial-gradient(rgba(17,27,37,.2) 1.4px, transparent 1.4px); background-size: 15px 15px; }
+    .slash-bg { background: repeating-linear-gradient(-45deg, var(--amarillo) 0 12px, #131b24 12px 19px); }
+    .hero-title { font-size: clamp(4.7rem, 10.4vw, 9.4rem); line-height: .76; }
+    .section-title { font-size: clamp(3.3rem, 6.2vw, 5.7rem); line-height: .86; }
+    .eyebrow { font-size: .73rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .tag { border: 1px solid var(--borde); background: rgba(255,255,255,.045); padding: .48rem .75rem; font-size: .72rem; font-weight: 700; letter-spacing: .055em; text-transform: uppercase; }
+    .ui-button { display: inline-flex; gap: .65rem; align-items: center; justify-content: center; padding: .95rem 1.4rem; font-size: .79rem; font-weight: 800; letter-spacing: .075em; text-transform: uppercase; transition: transform .2s, box-shadow .2s, background-color .2s; }
+    .ui-button:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 #080d12; }
+    .number { font-family: 'Barlow Condensed', sans-serif; font-size: 3.75rem; font-weight: 800; line-height: 1; }
+    .rule { height: 1px; background: var(--borde); }
+    .slab { border: 1px solid var(--borde); background: var(--fondo-2); }
+    .detail-label { display: block; font-size: .68rem; font-weight: 800; letter-spacing: .14em; color: #93a8b7; text-transform: uppercase; margin-bottom: .35rem; }
+    .record-line { position: relative; padding-left: 1.15rem; }
+    .record-line::before { content: ''; position: absolute; width: 7px; height: 7px; left: 0; top: .55rem; background: var(--rojo); transform: rotate(45deg); }
+    .heading-rule { height: 6px; background: linear-gradient(to right, var(--rojo) 0 32%, var(--amarillo) 32% 54%, var(--celeste) 54% 70%, var(--borde) 70%); }
+    .identity-art { isolation: isolate; min-height: 255px; position: relative; overflow: hidden; background: #eecb6a; }
+    .identity-art::before { content: ''; position: absolute; width: 410px; height: 410px; border: 45px solid #e86650; border-radius: 50%; left: 50%; top: 48%; transform: translate(-50%,-50%); opacity: .86; z-index: -1; }
+    .identity-art::after { content: '001'; position: absolute; right: 10px; bottom: -49px; color: rgba(17,26,34,.13); font: 900 210px 'Barlow Condensed',sans-serif; }
+    .avatar-monogram { font: 900 clamp(7rem, 16vw, 11rem)/1 'Barlow Condensed', sans-serif; letter-spacing: -.085em; color: #17242e; text-shadow: 5px 5px 0 rgba(255,255,255,.25); transform: skew(-8deg); }
+    .skill-card { border: 1px solid var(--borde); background: var(--fondo-2); transition: transform .22s, border-color .22s; }
+    .skill-card:hover { transform: translateY(-5px); border-color: var(--celeste); }
+    .skill-card li { padding: .63rem 0; border-bottom: 1px solid rgba(144,164,176,.19); color: #c6d2d9; font-size: .88rem; }
+    .skill-card li:last-child { border-bottom: 0; }
+    .timeline-card { border: 1px solid var(--borde); background: var(--panel); }
+    .section-kicker { color: var(--amarillo); }
+    .desktop-links a { transition: color .2s; }
+    .desktop-links a:hover { color: var(--amarillo); }
+    .pill-online { height: 8px; width: 8px; background: #92d1a1; border-radius: 50%; box-shadow: 0 0 0 4px rgba(146,209,161,.14); }
+    ::selection { background: var(--amarillo); color: #121b25; }
+    @media (max-width: 767px) {
+      .hero-title { font-size: clamp(3.1rem, 13.5vw, 5.8rem); }
+      .section-title { font-size: clamp(2.5rem, 10.4vw, 3.2rem); }
+      .hard-shadow { box-shadow: 6px 6px 0 #0a1118; }
+      #mobile-menu[hidden] { display: none; }
+    }
+    @media (max-width: 639px) {
+      .education-card h3 { font-size: 1.8rem; }
+      .timeline-card h3 { font-size: 1.6rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
+<body>
+  <!-- MENÚ PRINCIPAL -->
+  <nav class="sticky top-0 z-50 border-b-2 border-[#0a1118] bg-[#121b25]/95 backdrop-blur-lg" aria-label="Menú principal">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-5 px-5 py-3 md:px-8">
+      <a href="#perfil" class="flex items-center gap-3" aria-label="Ir al inicio del portafolio">
+        <span class="display flex h-11 w-11 items-center justify-center border-2 border-[#0a1118] bg-[#f4c84d] text-3xl font-black text-[#121b25]">M<span class="text-[#ed654f]">.</span></span>
+        <span class="leading-tight">
+          <strong class="display block text-2xl leading-6 tracking-wider">MAURICIO GÓMEZ</strong>
+          <small class="block text-[9px] font-bold uppercase tracking-[.21em] text-[#a9b7c1]">Portafolio // Informática</small>
+        </span>
+      </a>
+      <div class="desktop-links hidden items-center gap-7 text-xs font-extrabold uppercase tracking-widest md:flex">
+        <a href="#perfil">Perfil</a>
+        <a href="#estudios">Educación</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="mailto:gomezmauricioignacio@gmail.com" class="border-2 border-[#10161e] bg-[#ed654f] px-4 py-2 text-[#10161e] hover:!text-[#10161e]">Contacto ↗</a>
+      </div>
+      <button id="menu-toggle" class="flex h-11 w-11 items-center justify-center border border-[#60717e] text-2xl md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
+    </div>
+    <div id="mobile-menu" class="border-t border-[#405360] bg-[#1a2732] px-5 py-3 md:hidden" hidden>
+      <div class="flex flex-col gap-1 text-sm font-bold uppercase tracking-widest">
+        <a class="px-3 py-3 hover:bg-[#283845]" href="#perfil">Perfil</a>
+        <a class="px-3 py-3 hover:bg-[#283845]" href="#estudios">Educación</a>
+        <a class="px-3 py-3 hover:bg-[#283845]" href="#habilidades">Habilidades</a>
+        <a class="px-3 py-3 hover:bg-[#283845]" href="#experiencia">Experiencia</a>
+        <a class="px-3 py-3 text-[#f4c84d] hover:bg-[#283845]" href="mailto:gomezmauricioignacio@gmail.com">Contacto ↗</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4 sticky top-0 z-50 border-b border-gray-700 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <span class="text-xl font-bold text-blue-400">Mauricio Gómez</span>
-            <div class="space-x-4">
-                <a href="#perfil" class="hover:text-blue-400 transition">Perfil</a>
-                <a href="#estudios" class="hover:text-blue-400 transition">Educación</a>
-                <a href="#habilidades" class="hover:text-blue-400 transition">Habilidades</a>
-                <a href="#experiencia" class="hover:text-blue-400 transition">Experiencia</a>
-                <a href="#proyectos" class="hover:text-blue-400 transition text-green-400 font-semibold">Proyectos IA</a>
+  <main>
+    <!-- PERFIL / HERO -->
+    <header id="perfil" class="mx-auto max-w-6xl px-5 pb-16 pt-14 md:px-8 md:pb-24 md:pt-20">
+      <div class="grid items-center gap-14 lg:grid-cols-[1.18fr_.82fr] lg:gap-12">
+        <div>
+          <div class="mb-8 flex flex-wrap items-center gap-3">
+            <span class="eyebrow border border-[#ed654f] bg-[#ed654f]/10 px-3 py-2 text-[#ff9f8e]">● Archivo personal / 001</span>
+            <span class="eyebrow flex items-center gap-2 text-[#b7c8d2]"><span class="pill-online"></span>Disponible para trabajar</span>
+          </div>
+          <p class="display mb-3 text-2xl font-bold uppercase tracking-[.15em] text-[#80c5d1]">Hola, soy</p>
+          <h1 class="display hero-title mb-7 font-black uppercase" aria-label="Mauricio Ignacio Gómez González">
+            <span class="block">MAURICIO</span>
+            <span class="block text-[#f4c84d]">IGNACIO</span>
+            <span class="block">GÓMEZ</span>
+            <span class="block text-[#ed654f]">GONZÁLEZ<span class="text-[#f2ecdf]">.</span></span>
+          </h1>
+          <p class="max-w-xl border-l-4 border-[#ed654f] pl-5 text-base font-semibold leading-relaxed text-[#d1dbe0] md:text-lg">
+            Estudiante de Ingeniería en Informática y Técnico de Nivel Medio en Telecomunicaciones.
+            Me interesa la tecnología, el soporte TI, las redes y seguir aprendiendo.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-2">
+            <span class="tag">Soporte TI</span><span class="tag">Redes</span><span class="tag">Programación</span><span class="tag">Git / GitHub</span>
+          </div>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a class="ui-button hard-shadow-small outline-dark bg-[#f4c84d] text-[#121b25]" href="#experiencia">Ver experiencia <span aria-hidden="true">↘</span></a>
+            <a class="ui-button border-2 border-[#6c7e89] text-[#f2ecdf] hover:bg-[#273946]" href="mailto:gomezmauricioignacio@gmail.com">Contactarme <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <!-- Credencial original con estética de centro de operaciones -->
+        <div class="relative max-w-lg lg:justify-self-end">
+          <div class="absolute -right-3 -top-4 z-10 rotate-6 border-2 border-[#121b25] bg-[#ed654f] px-4 py-2 text-[11px] font-black uppercase tracking-widest text-[#121b25]">Perfil activo ★</div>
+          <div class="hard-shadow outline-dark overflow-hidden bg-[#f2ecdf] text-[#121b25]">
+            <div class="flex items-center justify-between bg-[#e86650] px-5 py-3 text-xs font-black uppercase tracking-[.13em]">
+              <span>Central de operaciones</span><span>ID / M.G. 001</span>
             </div>
+            <div class="identity-art dot-bg flex items-center justify-center border-b-4 border-[#121b25]" aria-hidden="true">
+              <div class="avatar-monogram">MG</div>
+              <div class="absolute bottom-4 left-4 border-2 border-[#121b25] bg-[#f2ecdf] px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest">Ficha técnica / Personal</div>
+            </div>
+            <div class="px-6 pb-5 pt-5">
+              <p class="eyebrow mb-1 text-[#ba4b3d]">Identificación</p>
+              <h2 class="display text-5xl font-black uppercase leading-none">Mauricio Gómez</h2>
+              <p class="mt-1 text-xs font-bold uppercase tracking-[.09em] text-[#57626a]">Área: Informática / Telecomunicaciones</p>
+              <div class="my-5 h-[2px] bg-[#121b25]"></div>
+              <div class="grid grid-cols-2 gap-x-3 gap-y-4 text-sm">
+                <div><span class="detail-label !text-[#65747a]">Ubicación</span><strong>Renca, Santiago</strong></div>
+                <div><span class="detail-label !text-[#65747a]">País</span><strong>Chile</strong></div>
+                <div><span class="detail-label !text-[#65747a]">Edad</span><strong>22 años</strong></div>
+                <div><span class="detail-label !text-[#65747a]">Estado</span><strong>Disponible</strong></div>
+              </div>
+            </div>
+            <div class="slash-bg h-4 border-t-2 border-[#121b25]" aria-hidden="true"></div>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero / Perfil -->
-    <header id="perfil" class="container mx-auto max-w-4xl py-16 px-4 text-center">
-        <h1 class="text-4xl font-extrabold mb-2 text-white">Mauricio Ignacio Gómez González</h1>
-        <p class="text-xl text-blue-400 mb-6 font-medium">Estudiante de Ingeniería en Informática & Técnico en Telecomunicaciones</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto text-left bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
-            <p><span class="text-gray-400 font-semibold">📍 Ubicación:</span> Renca, Santiago, Chile</p>
-            <p><span class="text-gray-400 font-semibold">📧 Correo:</span> gomezmauricioignacio@gmail.com</p>
-            <p><span class="text-gray-400 font-semibold">📱 Teléfono:</span> +56 9 2046 9024</p>
-            <p><span class="text-gray-400 font-semibold">🎂 Edad:</span> 22 Años</p>
-        </div>
+      </div>
+      <!-- Datos de contacto -->
+      <div class="mt-16 grid gap-3 border-t border-[#405360] pt-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="flex items-center gap-3"><span class="display text-3xl font-black text-[#f4c84d]">01</span><div><span class="detail-label">Base de operaciones</span><span class="text-sm font-semibold">Renca, Santiago, Chile</span></div></div>
+        <a class="flex min-w-0 items-center gap-3 hover:text-[#f4c84d]" href="mailto:gomezmauricioignacio@gmail.com"><span class="display text-3xl font-black text-[#f4c84d]">02</span><div class="min-w-0"><span class="detail-label">Correo electrónico</span><span class="block break-all text-sm font-semibold">gomezmauricioignacio@gmail.com</span></div></a>
+        <a class="flex items-center gap-3 hover:text-[#f4c84d]" href="tel:+56920469024"><span class="display text-3xl font-black text-[#f4c84d]">03</span><div><span class="detail-label">Teléfono</span><span class="text-sm font-semibold">+56 9 2046 9024</span></div></a>
+      </div>
     </header>
 
-    <!-- Sección de Proyectos IA -->
-    <section id="proyectos" class="bg-gray-800 py-12 border-t border-b border-gray-700">
-        <div class="container mx-auto max-w-4xl px-4">
-            <h2 class="text-2xl font-bold text-green-400 mb-6 flex items-center">🤖 Mis Proyectos de Automatización con IA</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Proyecto 1 -->
-                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-2">AI Email Classifier (Python + OpenAI)</h3>
-                    <p class="text-gray-400 text-sm mb-4">Script en Python que lee bandejas de entrada mediante IMAP, procesa los correos usando la API de GPT para clasificarlos de forma automatizada por urgencia y extrae los datos clave en formato JSON.</p>
-                    <span class="inline-block bg-blue-900/50 text-blue-300 text-xs px-2.5 py-1 rounded font-medium mr-2">Python</span>
-                    <span class="inline-block bg-green-900/50 text-green-300 text-xs px-2.5 py-1 rounded font-medium">OpenAI API</span>
-                </div>
-                <!-- Proyecto 2 -->
-                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 shadow-md">
-                    <h3 class="text-xl font-bold text-white mb-2">RAG Document Assistant</h3>
-                    <p class="text-gray-400 text-sm mb-4">Sistema básico de Recuperación Aumentada por Generación (RAG) estructurado con LangChain. Permite cargar manuales técnicos en PDF en una base de datos vectorial para responder consultas de soporte de manera exacta.</p>
-                    <span class="inline-block bg-blue-900/50 text-blue-300 text-xs px-2.5 py-1 rounded font-medium mr-2">LangChain</span>
-                    <span class="inline-block bg-purple-900/50 text-purple-300 text-xs px-2.5 py-1 rounded font-medium">ChromaDB</span>
-                </div>
-            </div>
-        </div>
+    <div class="heading-rule" aria-hidden="true"></div>
+    <div class="border-b border-[#0a1118] bg-[#f4c84d] py-3 text-center text-[10px] font-black uppercase tracking-[.13em] text-[#121b25] sm:text-xs sm:tracking-[.32em]">// Formación técnica • Resolución de problemas • Aprendizaje continuo //</div>
+
+    <!-- ESTUDIOS -->
+    <section id="estudios" class="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
+      <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div><span class="eyebrow section-kicker">01 / Expediente académico</span><h2 class="display section-title mt-3 font-black uppercase">Mi <span class="text-[#80c5d1]">formación</span></h2></div>
+        <p class="max-w-xs text-sm leading-relaxed muted">Conocimientos construidos entre la informática, las telecomunicaciones y la experiencia práctica.</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2">
+        <article class="education-card hard-shadow-small outline-dark bg-[#f2ecdf] p-6 text-[#121b25] sm:p-8">
+          <div class="mb-8 flex items-start justify-between gap-4"><span class="display number text-[#ed654f]">01</span><span class="bg-[#f4c84d] px-3 py-2 text-[10px] font-black uppercase tracking-widest">En curso</span></div>
+          <h3 class="display mb-3 text-4xl font-black uppercase leading-none sm:text-5xl">Ingeniería en Informática</h3>
+          <div class="mb-4 h-1 w-16 bg-[#ed654f]"></div>
+          <p class="text-sm font-bold">INACAP · Sede Renca</p>
+          <p class="mt-1 text-sm text-[#52616b]">5° semestre (3er año)</p>
+        </article>
+        <article class="education-card hard-shadow-small outline-dark bg-[#253746] p-6 sm:p-8">
+          <div class="mb-8 flex items-start justify-between gap-4"><span class="display number text-[#80c5d1]">02</span><span class="border border-[#80c5d1] px-3 py-2 text-[10px] font-black uppercase tracking-widest text-[#80c5d1]">Titulado</span></div>
+          <h3 class="display mb-3 text-4xl font-black uppercase leading-none sm:text-5xl">Técnico en Telecomunicaciones</h3>
+          <div class="mb-4 h-1 w-16 bg-[#80c5d1]"></div>
+          <p class="text-sm font-bold">Técnico de Nivel Medio</p>
+          <p class="mt-1 text-sm muted">Instituto Cumbres de Cóndores Oriente</p>
+        </article>
+      </div>
     </section>
 
-    <!-- Educación -->
-    <section id="estudios" class="container mx-auto max-w-4xl py-12 px-4">
-        <h2 class="text-2xl font-bold text-blue-400 mb-6">🎓 Antecedentes Educacionales</h2>
-        <div class="space-y-6">
-            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                <span class="text-xs font-semibold bg-blue-900 text-blue-300 px-2 py-1 rounded float-right">En Curso</span>
-                <h3 class="text-xl font-bold text-white">Ingeniería en Informática</h3>
-                <p class="text-gray-400">INACAP, Sede Renca — 5° Semestre (3er Año)</p>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                <span class="text-xs font-semibold bg-gray-700 text-gray-300 px-2 py-1 rounded float-right">Titulado</span>
-                <h3 class="text-xl font-bold text-white">Técnico de Nivel Medio en Telecomunicaciones</h3>
-                <p class="text-gray-400">Instituto Cumbres de Cóndores Oriente</p>
-            </div>
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="border-y border-[#415360] bg-[#1a2732]/95 py-20 md:py-24">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="mb-10"><span class="eyebrow section-kicker">02 / Panel de habilidades</span><h2 class="display section-title mt-3 font-black uppercase">Mis <span class="text-[#ed654f]">habilidades</span></h2><p class="mt-4 max-w-xl text-sm muted">Herramientas y áreas técnicas que manejo o estoy desarrollando durante mi formación.</p></div>
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="skill-card overflow-hidden">
+            <div class="h-2 bg-[#ed654f]"></div>
+            <div class="p-6"><div class="mb-5 flex items-center justify-between"><span class="display text-5xl font-black text-[#ed654f]">01</span><span class="eyebrow text-[#879aa6]">Módulo</span></div><h3 class="display mb-4 text-3xl font-black uppercase leading-none">Soporte e<br>Infraestructura</h3><ul><li>Diagnóstico y armado de PC</li><li>Gestión de tickets y mesa de ayuda</li><li>Windows avanzado</li></ul></div>
+          </article>
+          <article class="skill-card overflow-hidden">
+            <div class="h-2 bg-[#f4c84d]"></div>
+            <div class="p-6"><div class="mb-5 flex items-center justify-between"><span class="display text-5xl font-black text-[#f4c84d]">02</span><span class="eyebrow text-[#879aa6]">Módulo</span></div><h3 class="display mb-4 text-3xl font-black uppercase leading-none">Redes y<br>Conectividad</h3><ul><li>Implementación de redes</li><li>Cableado estructurado</li><li>Soporte de conectividad técnica</li></ul></div>
+          </article>
+          <article class="skill-card overflow-hidden">
+            <div class="h-2 bg-[#80c5d1]"></div>
+            <div class="p-6"><div class="mb-5 flex items-center justify-between"><span class="display text-5xl font-black text-[#80c5d1]">03</span><span class="eyebrow text-[#879aa6]">Módulo</span></div><h3 class="display mb-4 text-3xl font-black uppercase leading-none">Desarrollo y<br>Ofimática</h3><ul><li>Lógica de programación (Python / SQL)</li><li>Microsoft Office (Excel / Word)</li><li>Git y GitHub</li></ul></div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Habilidades -->
-    <section id="habilidades" class="bg-gray-800 py-12 border-t border-gray-700">
-        <div class="container mx-auto max-w-4xl px-4">
-            <h2 class="text-2xl font-bold text-blue-400 mb-6">🛠️ Conocimientos Técnicos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                    <h3 class="text-white font-bold mb-2 border-b border-gray-700 pb-1 text-md">Soporte e Infraestructura</h3>
-                    <ul class="text-gray-400 text-sm space-y-1 list-disc pl-4">
-                        <li>Diagnóstico y armado de PC</li>
-                        <li>Gestión de tickets y Mesa de ayuda</li>
-                        <li>Sistemas Operativos Windows Avanzado</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold mb-2 border-b border-gray-700 pb-1 text-md">Redes y Conectividad</h3>
-                    <ul class="text-gray-400 text-sm space-y-1 list-disc pl-4">
-                        <li>Implementación de redes</li>
-                        <li>Cableado estructurado</li>
-                        <li>Soporte de conectividad técnica</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold mb-2 border-b border-gray-700 pb-1 text-md">Desarrollo & Ofimática</h3>
-                    <ul class="text-gray-400 text-sm space-y-1 list-disc pl-4">
-                        <li>Lógica de programación (Python/SQL)</li>
-                        <li>Microsoft Office (Excel/Word)</li>
-                        <li>Control de versiones Git & GitHub</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <!-- EXPERIENCIA -->
+    <section id="experiencia" class="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
+      <div class="mb-10"><span class="eyebrow section-kicker">03 / Historial de servicio</span><h2 class="display section-title mt-3 font-black uppercase">Experiencia <span class="text-[#f4c84d]">laboral</span></h2></div>
+      <div class="space-y-5">
+        <article class="timeline-card grid overflow-hidden md:grid-cols-[180px_1fr]">
+          <div class="flex items-center justify-between gap-3 border-b border-[#405360] bg-[#ed654f] p-5 text-[#121b25] md:flex-col md:items-start md:justify-between md:border-b-0 md:border-r"><span class="display text-6xl font-black">01</span><span class="eyebrow">Feb – May 2023</span></div>
+          <div class="p-6 md:p-8"><span class="eyebrow text-[#80c5d1]">Soprole S.A. · Práctica profesional (4 meses)</span><h3 class="display mb-3 mt-2 text-3xl font-black uppercase leading-none sm:text-4xl">Técnico en Telecomunicaciones</h3><p class="max-w-3xl text-sm leading-7 text-[#c4d0d7]">Soporte técnico remoto y presencial a usuarios dentro de la empresa. Atención de incidencias tecnológicas mediante gestión de tickets en mesa de ayuda.</p></div>
+        </article>
+        <article class="timeline-card grid overflow-hidden md:grid-cols-[180px_1fr]">
+          <div class="flex items-center justify-between gap-3 border-b border-[#405360] bg-[#f4c84d] p-5 text-[#121b25] md:flex-col md:items-start md:justify-between md:border-b-0 md:border-r"><span class="display text-6xl font-black">02</span><span class="eyebrow">2023 · 6 meses</span></div>
+          <div class="p-6 md:p-8"><span class="eyebrow text-[#80c5d1]">Activos Chile (Paris)</span><h3 class="display mb-3 mt-2 text-3xl font-black uppercase leading-none sm:text-4xl">Operario de Bodega / Logística</h3><p class="max-w-3xl text-sm leading-7 text-[#c4d0d7]">Operación en línea de sorter, clasificación, paletizado y picking manual según requerimientos operativos de despacho seguro.</p></div>
+        </article>
+      </div>
     </section>
 
-    <!-- Experiencia -->
-    <section id="experiencia" class="container mx-auto max-w-4xl py-12 px-4">
-        <h2 class="text-2xl font-bold text-blue-400 mb-6">💼 Experiencia Laboral</h2>
-        <div class="space-y-6">
-            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                <span class="text-sm text-gray-400 float-right">Feb 2023 – May 2023</span>
-                <h3 class="text-xl font-bold text-white">Práctica Profesional - Técnico en Telecomunicaciones</h3>
-                <p class="text-blue-400 font-medium mb-2">Soprole S.A (4 meses)</p>
-                <p class="text-gray-400 text-sm">Soporte técnico remoto y presencial a usuarios en dependencias de la empresa. Atención e incidencias tecnológicas mediante gestión de tickets en mesa de ayuda.</p>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                <span class="text-sm text-gray-400 float-right">2023 (6 meses)</span>
-                <h3 class="text-xl font-bold text-white">Operario de Bodega / Logística</h3>
-                <p class="text-blue-400 font-medium mb-2">Activos Chile (Paris)</p>
-                <p class="text-gray-400 text-sm">Operación en línea de sorter, clasificación, paletizado y picking manual según requerimientos operativos de despacho seguro.</p>
-            </div>
-        </div>
+    <!-- CONTACTO -->
+    <section class="relative overflow-hidden border-t-2 border-[#0a1118] bg-[#e86650] py-16 text-[#111b25]">
+      <div class="dot-bg absolute inset-0 opacity-20" aria-hidden="true"></div>
+      <div class="relative mx-auto flex max-w-6xl flex-col items-start justify-between gap-7 px-5 md:flex-row md:items-center md:px-8">
+        <div><span class="eyebrow">04 / Próxima misión</span><h2 class="display mt-2 text-5xl font-black uppercase leading-[.86] sm:text-7xl">¿Hablamos?</h2><p class="mt-3 max-w-lg text-sm font-semibold">Disponible para oportunidades laborales y para seguir creciendo en el área TI.</p></div>
+        <a class="ui-button hard-shadow-small outline-dark shrink-0 bg-[#f4c84d] text-[#121b25]" href="mailto:gomezmauricioignacio@gmail.com?subject=Contacto%20desde%20tu%20portafolio">Enviar correo ↗</a>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 text-center py-6 text-gray-500 text-sm">
-        <p>Disponibilidad Inmediata • Mauricio Gómez González</p>
-    </footer>
+  <footer class="border-t-4 border-[#0a1118] bg-[#101820] px-5 py-7 text-center">
+    <div class="mx-auto flex max-w-6xl flex-col justify-between gap-4 text-[11px] font-bold uppercase tracking-widest text-[#a9b7c1] md:flex-row md:items-center md:text-left">
+      <p>© <span id="year">2026</span> Mauricio Gómez González · Santiago, Chile</p>
+      <p>Portafolio personal / Disponible para trabajar</p>
+      <a href="#perfil" class="text-[#f4c84d] hover:underline">Volver arriba ↑</a>
+    </div>
+  </footer>
 
+  <script>
+    // Menú adaptable a celulares.
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMenu() {
+      mobileMenu.hidden = true;
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menú');
+      menuToggle.textContent = '☰';
+    }
+    menuToggle.addEventListener('click', () => {
+      const open = menuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenu.hidden = open;
+      menuToggle.setAttribute('aria-expanded', String(!open));
+      menuToggle.setAttribute('aria-label', open ? 'Abrir menú' : 'Cerrar menú');
+      menuToggle.textContent = open ? '☰' : '✕';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    window.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMenu(); });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
