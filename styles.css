@@ -1,0 +1,154 @@
+/* CV Mauricio Gómez - estilos personalizados del portafolio.
+   Colores principales: modificar las variables de :root al inicio.
+   Tailwind CSS sigue cargándose desde el HTML para las clases utilitarias.
+*/
+
+:root {
+      --fondo: #121b25;
+      --fondo-2: #1a2732;
+      --panel: #22323f;
+      --crema: #f2ecdf;
+      --muted: #a9b7c1;
+      --rojo: #ed654f;
+      --amarillo: #f4c84d;
+      --celeste: #80c5d1;
+      --borde: #405360;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--crema);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .18;
+      background-image: radial-gradient(#8398a7 0.8px, transparent 0.8px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(90deg, transparent 15%, #000 100%);
+    }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 4px; }
+    .display { font-family: 'Barlow Condensed', Impact, sans-serif; letter-spacing: .035em; overflow-wrap: anywhere; }
+    .grid > * { min-width: 0; }
+    .muted { color: var(--muted); }
+    .outline-dark { border: 2px solid #0a1118; }
+    .hard-shadow { box-shadow: 9px 9px 0 #0a1118; }
+    .hard-shadow-small { box-shadow: 5px 5px 0 #0a1118; }
+    .dot-bg { background-image: radial-gradient(rgba(17,27,37,.2) 1.4px, transparent 1.4px); background-size: 15px 15px; }
+    .slash-bg { background: repeating-linear-gradient(-45deg, var(--amarillo) 0 12px, #131b24 12px 19px); }
+    .hero-title { font-size: clamp(4.7rem, 10.4vw, 9.4rem); line-height: .76; }
+    .section-title { font-size: clamp(3.3rem, 6.2vw, 5.7rem); line-height: .86; }
+    .eyebrow { font-size: .73rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .tag { border: 1px solid var(--borde); background: rgba(255,255,255,.045); padding: .48rem .75rem; font-size: .72rem; font-weight: 700; letter-spacing: .055em; text-transform: uppercase; }
+    .ui-button { display: inline-flex; gap: .65rem; align-items: center; justify-content: center; padding: .95rem 1.4rem; font-size: .79rem; font-weight: 800; letter-spacing: .075em; text-transform: uppercase; transition: transform .2s, box-shadow .2s, background-color .2s; }
+    .ui-button:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 #080d12; }
+    .number { font-family: 'Barlow Condensed', sans-serif; font-size: 3.75rem; font-weight: 800; line-height: 1; }
+    .rule { height: 1px; background: var(--borde); }
+    .slab { border: 1px solid var(--borde); background: var(--fondo-2); }
+    .detail-label { display: block; font-size: .68rem; font-weight: 800; letter-spacing: .14em; color: #93a8b7; text-transform: uppercase; margin-bottom: .35rem; }
+    .record-line { position: relative; padding-left: 1.15rem; }
+    .record-line::before { content: ''; position: absolute; width: 7px; height: 7px; left: 0; top: .55rem; background: var(--rojo); transform: rotate(45deg); }
+    .heading-rule { height: 6px; background: linear-gradient(to right, var(--rojo) 0 32%, var(--amarillo) 32% 54%, var(--celeste) 54% 70%, var(--borde) 70%); }
+    .identity-art { isolation: isolate; min-height: 255px; position: relative; overflow: hidden; background: #eecb6a; }
+    .identity-art::before { content: ''; position: absolute; width: 410px; height: 410px; border: 45px solid #e86650; border-radius: 50%; left: 50%; top: 48%; transform: translate(-50%,-50%); opacity: .86; z-index: -1; }
+    .identity-art::after { content: '001'; position: absolute; right: 10px; bottom: -49px; color: rgba(17,26,34,.13); font: 900 210px 'Barlow Condensed',sans-serif; }
+    .avatar-monogram { font: 900 clamp(7rem, 16vw, 11rem)/1 'Barlow Condensed', sans-serif; letter-spacing: -.085em; color: #17242e; text-shadow: 5px 5px 0 rgba(255,255,255,.25); transform: skew(-8deg); }
+    .skill-card { border: 1px solid var(--borde); background: var(--fondo-2); transition: transform .22s, border-color .22s; }
+    .skill-card:hover { transform: translateY(-5px); border-color: var(--celeste); }
+    .skill-card li { padding: .63rem 0; border-bottom: 1px solid rgba(144,164,176,.19); color: #c6d2d9; font-size: .88rem; }
+    .skill-card li:last-child { border-bottom: 0; }
+    .timeline-card { border: 1px solid var(--borde); background: var(--panel); }
+    .section-kicker { color: var(--amarillo); }
+    .desktop-links a { transition: color .2s; }
+    .desktop-links a:hover { color: var(--amarillo); }
+    .pill-online { height: 8px; width: 8px; background: #92d1a1; border-radius: 50%; box-shadow: 0 0 0 4px rgba(146,209,161,.14); }
+
+    /* NUEVAS SECCIONES: tecnologías, habilidades personales y redes */
+    .tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .75rem; }
+    @media (min-width: 640px) { .tool-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    @media (min-width: 1024px) { .tool-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+    @media (min-width: 1280px) { .tool-grid { grid-template-columns: repeat(8, minmax(0,1fr)); } }
+    .tech-tile {
+      min-height: 147px;
+      border: 1px solid var(--borde);
+      background: #17252f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 20px 10px;
+      text-align: center;
+      position: relative;
+      transition: transform .22s, border-color .22s, background-color .22s;
+    }
+    .tech-tile::before { content: ''; position: absolute; top: 0; left: 0; width: 34px; height: 4px; background: var(--tile-accent, var(--celeste)); }
+    .tech-tile:hover { transform: translateY(-4px); border-color: var(--tile-accent, var(--celeste)); background: #233541; }
+    .tech-icon { height: 51px; min-width: 54px; display: flex; align-items: center; justify-content: center; }
+    .tech-icon img { width: 49px; max-height: 49px; object-fit: contain; }
+    .tech-icon img.wide { width: 82px; max-width: 82px; }
+    .tech-icon .fallback[hidden] { display: none !important; }
+    .tech-icon .fallback { display: flex; align-items: center; justify-content: center; min-width: 49px; height: 49px; padding: 0 5px; font: 900 1.45rem 'Barlow Condensed',sans-serif; letter-spacing: .01em; color: var(--tile-accent, var(--amarillo)); border: 2px solid currentColor; }
+    .tech-tile .tech-name { color: var(--crema); font-size: .84rem; font-weight: 800; line-height: 1.3; }
+
+    /* Distintivo discreto para herramientas que sigo aprendiendo. */
+    .tech-tile.in-learning { border-color: #8dbbb7; background: #21333b; }
+    .tech-tile .learning-label {
+      display: inline-block;
+      padding: 3px 8px;
+      border: 1px solid rgba(244,200,77,.7);
+      color: #f4c84d;
+      background: #2e3331;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .045em;
+      text-transform: uppercase;
+    }
+    .tech-tile.in-learning { gap: 10px; }
+    .soft-pill { border: 1px solid #607585; background: #15222d; padding: .67rem 1.1rem; font-size: .86rem; font-weight: 700; color: #d6e0e5; transition: background .2s, border-color .2s; }
+    .soft-pill::before { content: '✦'; color: var(--amarillo); margin-right: 8px; font-size: .7rem; }
+    .soft-pill:hover { border-color: var(--amarillo); background: #253644; }
+    .social-card { display: flex; align-items: center; gap: 17px; min-width: 0; border: 1px solid var(--borde); background: #22323f; padding: 21px; transition: transform .2s, border-color .2s, background-color .2s; }
+    .social-card:hover { transform: translateY(-3px); border-color: var(--amarillo); background: #2b4050; }
+    .social-mark { display: flex; flex: 0 0 54px; height: 54px; align-items: center; justify-content: center; color: #121b25; background: var(--card-accent, var(--amarillo)); }
+    .social-mark svg { width: 27px; height: 27px; }
+    .social-card .social-label { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .16em; color: #aec1cc; }
+    .social-card .social-user { display: block; margin-top: 3px; font-size: .99rem; font-weight: 800; overflow-wrap: anywhere; }
+    .social-card .social-arrow { margin-left: auto; color: var(--amarillo); font-size: 1.2rem; }
+    @media (max-width: 460px) {
+      .tech-tile { min-height: 128px; padding: 15px 6px; gap: 12px; }
+      .tech-tile .tech-name { font-size: .75rem; }
+      .social-mark { flex-basis: 47px; height: 47px; }
+    }
+    ::selection { background: var(--amarillo); color: #121b25; }
+    @media (max-width: 767px) {
+      .hero-title { font-size: clamp(3.1rem, 13.5vw, 5.8rem); }
+      .section-title { font-size: clamp(2.5rem, 10.4vw, 3.2rem); }
+      .hard-shadow { box-shadow: 6px 6px 0 #0a1118; }
+      #mobile-menu[hidden] { display: none; }
+    }
+    @media (max-width: 639px) {
+      .education-card h3 { font-size: 1.8rem; }
+      .timeline-card h3 { font-size: 1.6rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+
+    /* Cursor de Mecha Man (ilustración propia, estilo Dispatch).
+       Se aplica solo con mouse/trackpad y no afecta pantallas táctiles. */
+    @media (pointer: fine) {
+      html, body, main, section, header, nav, footer {
+        cursor: url("assets/cursor-mechaman.png") 2 2, auto;
+      }
+      a, button, a *, button * {
+        cursor: url("assets/cursor-mechaman-activo.png") 2 2, pointer !important;
+      }
+    }
