@@ -152,3 +152,8 @@
         cursor: url("assets/cursor-mechaman-activo.png") 2 2, pointer !important;
       }
     }
+
+
+/* Ajustes extra para logos/imágenes locales */
+.tech-icon img.logo-wide { width: 84px; max-width: 84px; }
+.tech-icon img.logo-tall { max-height: 56px; }

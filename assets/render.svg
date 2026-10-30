@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Render logo">
+  <rect width="120" height="120" rx="24" fill="#111827"/>
+  <circle cx="44" cy="60" r="18" fill="#ffffff"/>
+  <path d="M44 42 L44 78 L75 78 C84 78 91 71 91 62 C91 52 84 45 75 45 L63 45 L63 60 L75 60" fill="#ffffff"/>
+</svg>
