@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Cisco Packet Tracer">
+ <rect x="8" y="8" width="84" height="84" rx="14" fill="#153340"/>
+ <circle cx="36" cy="63" r="19" fill="none" stroke="#45c68a" stroke-width="5"/>
+ <path d="M17 63h38 M36 44v38 M21 54h30 M21 72h30" stroke="#45c68a" stroke-width="2.5" opacity=".8"/>
+ <path d="M30 25 H80 V57 L58 70 L30 54Z" stroke="#f1dd5a" stroke-width="4.8" fill="#1a4450" stroke-linejoin="round"/>
+ <path d="M32 27 L55 46 L79 27 M55 46 L55 66" stroke="#f1dd5a" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <circle cx="34" cy="62" r="8" fill="#153340" stroke="#fff" stroke-width="3"/>
+</svg>

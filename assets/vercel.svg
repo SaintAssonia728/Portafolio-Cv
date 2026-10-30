@@ -1,4 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Vercel logo">
-  <rect width="120" height="120" rx="24" fill="#ffffff"/>
-  <path d="M60 24 L97 90 H23 Z" fill="#000000"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Vercel">
+ <path d="M50 12 L96 91 H4 Z" fill="#fff"/>
 </svg>

@@ -157,3 +157,16 @@
 /* Ajustes extra para logos/imágenes locales */
 .tech-icon img.logo-wide { width: 84px; max-width: 84px; }
 .tech-icon img.logo-tall { max-height: 56px; }
+
+
+/* Iconos locales vectoriales: sin recortes de pantalla ni bordes añadidos */
+.tech-icon img[src^="assets/"] {
+  width: 53px;
+  max-width: 56px;
+  max-height: 53px;
+  height: auto;
+  object-fit: contain;
+  border: 0;
+  background: transparent;
+}
+.tech-icon img[src="assets/aws.svg"] { width: 85px; max-width: 85px; max-height: 59px; }
